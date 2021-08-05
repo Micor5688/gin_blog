@@ -4,18 +4,17 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/gin-gonic/gin"
-
 	"gin_blog/pkg/setting"
+	"gin_blog/routers"
 )
 
 func main() {
-	router := gin.Default()
-	router.GET("/test", func(c *gin.Context) {
-		c.JSON(200, gin.H{
-			"message": "test",
-		})
-	})
+	router := routers.InitRouter()
+	// router.GET("/test", func(c *gin.Context) {
+	// 	c.JSON(200, gin.H{
+	// 		"message": "test",
+	// 	})
+	// })
 
 	s := &http.Server{
 		Addr:           fmt.Sprintf(":%d", setting.HTTPPOrt),
